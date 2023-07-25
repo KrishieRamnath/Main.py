@@ -32,5 +32,17 @@ if main_use == "CP":
         else:
             right_model = "Microsoft Surface Book"
 
+if main_use == "S":
+    if touchscreen == "n":
+        right_model = "Microsoft Surface Laptop Go"
+    elif touchscreen == "y":
+        right_model = "Microsoft Surface Go"
+
+if main_use == "U":
+    if storage_needed >= 512:
+        right_model = "Microsoft Surface Laptop"
+    else:
+        right_model = "Microsoft Surface Pro"
+
 
 print(f"You should buy a {right_model}.")
