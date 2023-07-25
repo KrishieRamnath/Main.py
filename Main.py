@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 churn_data = pd.read_excel("DataSet.xlsx")
 
 age = int(input("How old are you?"))
-budget = int(input("What is your budget?"))
+budget = int(input("What is your budget ($)?"))
 main_use = input("What will your main use be out of: WordProcessing (WP); OnlineMeetings (OP); School (S); Music Production (MP); Computer Programming (CP); and University (U)? Please type in one of the initials provided.")
 usage_hours_per_week = int(input("What will your weekly usage hours be?"))
 storage_needed = int(input("How much storage will you need (GB)?"))
@@ -19,5 +19,18 @@ if main_use == "MP":
         right_model = "MacBook Pro"
     elif touchscreen == "y":
         right_model = "Microsoft Surface Book"
+
+if main_use == "CP":
+    if touchscreen == "n":
+        if budget <= 1200:
+            right_model = "MacBook Air"
+        else:
+            right_model = "MacBook Pro"
+    if touchscreen == "y":
+        if budget <= 2000:
+            right_model = "Samsung Galaxy Book"
+        else:
+            right_model = "Microsoft Surface Book"
+
 
 print(f"You should buy a {right_model}.")
