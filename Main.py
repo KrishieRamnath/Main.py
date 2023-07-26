@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-churn_data = pd.read_excel("DataSet.xlsx")
+comp_models = pd.read_excel("DataSet.xlsx")
 
 age = int(input("How old are you?"))
 budget = int(input("What is your budget ($)?"))
@@ -73,5 +73,12 @@ question_2 = input("Which of these would you like to see in relation to computer
 
 if question_1 == "y":
     question_2 ()
+
+plt.figure(figsize=(10,6))
+comp_models.plot(kind='bar')
+plt.title('Customers by InternetServiceType')
+plt.xlabel('Internet Service Type')
+plt.ylabel('Numbers of Customers')
+plt.show()
 
 #See corelation between aspect and model (if there is aspect).
