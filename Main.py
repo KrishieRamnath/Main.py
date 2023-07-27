@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sea
 comp_models = pd.read_excel("DataSet.xlsx")
 
 age = int(input("How old are you?"))
@@ -16,7 +17,7 @@ right_model = ""
 
 answers = []
 
-if age ==
+#if age ==
 
 if main_use == "MP":
     if touchscreen == "n":
@@ -77,20 +78,39 @@ question_1 = input("Would you like to see a graph? Please input y for yes or n f
 if question_1 == "y":
     question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); Touchscreen (T) or Model (M)? Please type in one of the initials provided.")
 
-correlation = 0
+grouped_data = comp_models.groupby('Model')['Age']
+#means = grouped_data['Age'].mean()
+mean_data = grouped_data['Age'].mean()
+summary_df = grouped_data['Age'].agg(['mean']).reset_index()
+#mean_for_category = means.loc['MSG']
+print(summary_df)
+#print(means)
+
 
 if question_2 == "A":
     Model = comp_models['Model']
     Age = comp_models['Age']
     plt.figure(figsize=(60, 8))
-    plt.bar(Model, Age)
+    plt.bar(Model, means)
     plt.xlabel('Model')
     plt.ylabel('Age')
     plt.title('How Age Affects Computer Model Bought', fontsize=16, fontweight='bold')
     plt.show()
-    correlation = comp_models['Age'].corr(comp_models['Model'])
+    sea.set(style='whitegrid')
+    #comp_models = sea.load_dataset("comp_models")
+    sea.swarmplot(data=comp_models, x='Model', y='Age').set(title='The Age Of Each User Against Their Computer Model')
+    plt.show()
+    #correlation = comp_models['Age'].corr(comp_models['Model'])
 
-#if question_2 == "B":
+if question_2 == "B":
+    Model = comp_models['Model']
+    Budget = comp_models['Budget']
+    plt.figure(figsize=(60, 8))
+    plt.bar(Model, Budget)
+    plt.xlabel('Model')
+    plt.ylabel('Budget')
+    plt.title('How Budget Affects Computer Model Bought', fontsize=16, fontweight='bold')
+    correlation = comp_models['Budget'].corr(comp_models['Model'])
 
 
 #See corelation between aspect and model (if there is aspect).
