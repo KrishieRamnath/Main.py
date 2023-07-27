@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sea
 comp_models = pd.read_excel("DataSet.xlsx")
+age_means = pd.read_excel("DataSetAge.xlsx")
 
 age = int(input("How old are you?"))
 budget = int(input("What is your budget ($)?"))
@@ -73,28 +74,30 @@ if main_use == "OM":
 print(f"You should buy a {right_model}.")
 
 
-question_1 = input("Would you like to see a graph? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSB - Microsoft Surface Book\nMSL - Microsoft Surface Laptop\nMSP - Microsoft Surface Pro\nMSG - Microsoft Surface Go\nMBA - MacBook Air\nMBP - MacBook Pro")
+question_1 = input("Would you like to see a graph? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSG - Microsoft Surface Go\nMSB - Microsoft Surface Book\nMBA - MacBook Air\nMSP - Microsoft Surface Pro\nMBP - MacBook Pro\nMSLG - Microsoft Surface Laptop Go\nMSL - Microsoft Surface Laptop")
 
 if question_1 == "y":
     question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); Touchscreen (T) or Model (M)? Please type in one of the initials provided.")
 
-grouped_data = comp_models.groupby('Model')['Age']
+#grouped_data = comp_models.groupby('Model')['Age'].mean()
 #means = grouped_data['Age'].mean()
-mean_data = grouped_data['Age'].mean()
-summary_df = grouped_data['Age'].agg(['mean']).reset_index()
+#mean_data = grouped_data['Age'].mean()
+#summary_df = grouped_data['Age'].agg(['mean']).reset_index()
+#Work out the mean age for each computer model.
+#Use those numbers in the bar chart.
 #mean_for_category = means.loc['MSG']
-print(summary_df)
+#print(summary_df)
 #print(means)
 
 
 if question_2 == "A":
-    Model = comp_models['Model']
-    Age = comp_models['Age']
+    Model = age_means['Model']
+    Age = age_means['Age']
     plt.figure(figsize=(60, 8))
-    plt.bar(Model, means)
+    plt.bar(Model, Age)
     plt.xlabel('Model')
     plt.ylabel('Age')
-    plt.title('How Age Affects Computer Model Bought', fontsize=16, fontweight='bold')
+    plt.title('The Average Age Of User Of Each Computer Model', fontsize=16, fontweight='bold')
     plt.show()
     sea.set(style='whitegrid')
     #comp_models = sea.load_dataset("comp_models")
