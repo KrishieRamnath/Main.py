@@ -4,7 +4,7 @@ comp_models = pd.read_excel("DataSet.xlsx")
 
 age = int(input("How old are you?"))
 budget = int(input("What is your budget ($)?"))
-main_use = input("What will your main use be out of: WordProcessing (WP); OnlineMeetings (OP); School (S); Music Production (MP); Computer Programming (CP); and University (U)? Please type in one of the initials provided.")
+main_use = input("What will your main use be out of: WordProcessing (WP); OnlineMeetings (OM); School (S); Music Production (MP); Computer Programming (CP); and University (U)? Please type in one of the initials provided.")
 usage_hours_per_week = int(input("What will your weekly usage hours be?"))
 storage_needed = int(input("How much storage will you need (GB)?"))
 memory_needed = int(input("How much memory will you need (GB)?"))
@@ -46,14 +46,17 @@ if main_use == "U":
 
 if main_use == "WP":
     if memory_needed >=16:
-        right_model = "MacBook Air"
+        if touchscreen == "n":
+            right_model = "MacBook Air"
+        elif touchscreen == "y":
+            right_model = "Microsoft Surface Book"
     else:
         if budget >= 1100:
             right_model = "Microsoft Surface Laptop"
         else:
             right_model = "Samsung Galaxy Book"
 
-if main_use == "OP":
+if main_use == "OM":
     if budget >= 1100:
         right_model = "MacBook Air"
     else:
@@ -65,20 +68,22 @@ if main_use == "OP":
 print(f"You should buy a {right_model}.")
 
 
-question_1 = input("Would you like to see a graph? Please input y for yes or n for no.")
-
-question_1 ()
-
-question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); Touchscreen (T) or Model (M)? Please type in one of the initials provided.")
+question_1 = input("Would you like to see a graph? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSB - Microsoft Surface Book\nMSL - Microsoft Surface Laptop\nMSP - Microsoft Surface Pro\nMSG - Microsoft Surface Go\nMBA - MacBook Air\nMBP - MacBook Pro")
 
 if question_1 == "y":
-    question_2 ()
+    question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); Touchscreen (T) or Model (M)? Please type in one of the initials provided.")
 
-plt.figure(figsize=(10,6))
-comp_models.plot(kind='bar')
-plt.title('Customers by InternetServiceType')
-plt.xlabel('Internet Service Type')
-plt.ylabel('Numbers of Customers')
-plt.show()
+if question_2 == "A":
+    Model = comp_models['Model']
+    Age = comp_models['Age']
+    plt.figure(figsize=(60, 8))
+    plt.bar(Model, Age)
+    plt.xlabel('Model')
+    plt.ylabel('Age')
+    plt.title('How Age Affects Computer Model Bought', fontsize=16, fontweight='bold')
+    plt.show()
+
+if question_2 == "B":
+
 
 #See corelation between aspect and model (if there is aspect).
