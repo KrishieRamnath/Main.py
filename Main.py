@@ -14,6 +14,10 @@ touchscreen = input("Would you like it to have a touchscreen? Please type in y f
 
 right_model = ""
 
+answers = []
+
+if age ==
+
 if main_use == "MP":
     if touchscreen == "n":
         right_model = "MacBook Pro"
@@ -73,6 +77,8 @@ question_1 = input("Would you like to see a graph? Please input y for yes or n f
 if question_1 == "y":
     question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); Touchscreen (T) or Model (M)? Please type in one of the initials provided.")
 
+correlation = 0
+
 if question_2 == "A":
     Model = comp_models['Model']
     Age = comp_models['Age']
@@ -82,8 +88,9 @@ if question_2 == "A":
     plt.ylabel('Age')
     plt.title('How Age Affects Computer Model Bought', fontsize=16, fontweight='bold')
     plt.show()
+    correlation = comp_models['Age'].corr(comp_models['Model'])
 
-if question_2 == "B":
+#if question_2 == "B":
 
 
 #See corelation between aspect and model (if there is aspect).
