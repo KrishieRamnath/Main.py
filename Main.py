@@ -7,12 +7,13 @@ budget_means = pd.read_excel("DataSetBudget.xlsx")
 most_common_main_use_means = pd.read_excel("DataSetMostCommonMainUse.xlsx")
 number_of_times_it_is_main_use_means = pd.read_excel("DataSetNumberOfTimesItIsMainUse.xlsx")
 usage_hours_per_week = pd.read_excel("DataSetUsageHoursPerWeek.xlsx")
+storage_needed = pd.read_excel("DataSetMostCommonStorageAmountNeeded.xlsx")
 
 age = int(input("How old are you?"))
 budget = int(input("What is your budget ($)?"))
 main_use = input("What will your main use be out of: WordProcessing (WP); OnlineMeetings (OM); School (S); Music Production (MP); Computer Programming (CP); and University (U)? Please type in one of the initials provided.")
-usage_hours_per_week = int(input("What will your weekly usage hours be?"))
-storage_needed = int(input("How much storage will you need (GB)?"))
+usage_hours__per_week = int(input("What will your weekly usage hours be?"))
+storage__needed = int(input("How much storage will you need (GB)?"))
 memory_needed = int(input("How much memory will you need (GB)?"))
 users = int(input("How many users will it have?"))
 color = input("What color would you like it in out of: Grey (G); Silver (S); Blue (B); Pink (P); and Red (R)? Please type in one of the initials provided.")
@@ -126,25 +127,25 @@ if question_2 == "B":
 #See corelation between aspect and model (if there is aspect).
 
 if question_2 == "MU":
-    Model = number_of_times_it_is_main_use_means['Model']
-    NumberOfTimesItIsMainUseMeans = number_of_times_it_is_main_use_means['NumberOfTimesItIsMainUseMeans']
+    MainUse = number_of_times_it_is_main_use_means['MainUse']
+    NumberOfTimesItIsMainUse = number_of_times_it_is_main_use_means['NumberOfTimesItIsMainUse']
     plt.figure(figsize=(40, 8))
-    plt.bar(Model, NumberOfTimesItIsMainUseMeans)
-    plt.xlabel('Model')
-    plt.ylabel('NumberOfTimesItIsMainUseMeans')
-    plt.title('The Number Of Times Each MainUse Is The Main Use', fontsize=16, fontweight='bold')
+    plt.bar(MainUse, NumberOfTimesItIsMainUse)
+    plt.xlabel('MainUse')
+    plt.ylabel('NumberOfTimesItIsMainUse')
+    plt.title('The Number Of Times Each Main Use Is The Most Common Main Use Of A Computer Model', fontsize=16, fontweight='bold')
     plt.show()
     sea.set(style='whitegrid')
-    plt.figure(figsize=(60, 8))
+    plt.figure(figsize=(40, 8))
     # comp_models = sea.load_dataset("comp_models")
-    sea.swarmplot(data=comp_models, x='Model', y='NumberOfTimesItIsMainUseMeans').set(title='The Number Of Times Each MainUse Is The Main Use')
+    sea.swarmplot(data=comp_models, x='Model', y='MainUse').set(title='The Main Uses Of Each Computer Model')
     plt.show()
 
 if question_2 == "UHPW":
     Model = usage_hours_per_week['Model']
-    Budget = usage_hours_per_week['UsageHoursPerWeek']
+    UsageHoursPerWeek = usage_hours_per_week['UsageHoursPerWeek']
     plt.figure(figsize=(60, 8))
-    plt.bar(Model, Budget)
+    plt.bar(Model, UsageHoursPerWeek)
     plt.xlabel('Model')
     plt.ylabel('UsageHoursPerWeek')
     plt.title('The Average Weekly Usage Hours Of Each Computer Model', fontsize=16, fontweight='bold')
@@ -154,4 +155,19 @@ if question_2 == "UHPW":
     # comp_models = sea.load_dataset("comp_models")
     sea.swarmplot(data=comp_models, x='Model', y='UsageHoursPerWeek').set(
         title='The Weekly Usage Hours Of Each User Against Their Computer Model')
+    plt.show()
+
+if question_2 == "SN":
+    Model = storage_needed['Model']
+    MostCommonStorageAmountNeeded = storage_needed['MostCommonStorageAmountNeeded (GB)']
+    plt.figure(figsize=(60, 8))
+    plt.bar(Model, MostCommonStorageAmountNeeded)
+    plt.xlabel('Model')
+    plt.ylabel('Most Common Storage Amount Needed (GB)')
+    plt.title('The Most Common Amount Of Storage Space Needed For Each Computer Model', fontsize=16, fontweight='bold')
+    plt.show()
+    sea.set(style='whitegrid')
+    plt.figure(figsize=(60, 8))
+    # comp_models = sea.load_dataset("comp_models")
+    sea.swarmplot(data=comp_models, x='Model', y='MostCommonStorageAmountNeeded (GB)').set(title='The Weekly Usage Hours Of Each User Against Their Computer Model')
     plt.show()
