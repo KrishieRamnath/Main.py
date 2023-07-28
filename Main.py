@@ -8,13 +8,15 @@ most_common_main_use_means = pd.read_excel("DataSetMostCommonMainUse.xlsx")
 number_of_times_it_is_main_use_means = pd.read_excel("DataSetNumberOfTimesItIsMainUse.xlsx")
 usage_hours_per_week = pd.read_excel("DataSetUsageHoursPerWeek.xlsx")
 storage_needed = pd.read_excel("DataSetMostCommonStorageAmountNeeded.xlsx")
+memory_needed = pd.read_excel("DataSetMostCommonMemoryAmountNeeded.xlsx")
+mean_number_of_users = pd.read_excel("DataSetMeanNumberOfUsers.xlsx")
 
 age = int(input("How old are you?"))
 budget = int(input("What is your budget ($)?"))
 main_use = input("What will your main use be out of: WordProcessing (WP); OnlineMeetings (OM); School (S); Music Production (MP); Computer Programming (CP); and University (U)? Please type in one of the initials provided.")
 usage_hours__per_week = int(input("What will your weekly usage hours be?"))
 storage__needed = int(input("How much storage will you need (GB)?"))
-memory_needed = int(input("How much memory will you need (GB)?"))
+memory__needed = int(input("How much memory will you need (GB)?"))
 users = int(input("How many users will it have?"))
 color = input("What color would you like it in out of: Grey (G); Silver (S); Blue (B); Pink (P); and Red (R)? Please type in one of the initials provided.")
 touchscreen = input("Would you like it to have a touchscreen? Please type in y for yes or n for no.")
@@ -80,7 +82,7 @@ print(f"You should buy a {right_model}.")
 question_1 = input("Would you like to see a graph? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSG - Microsoft Surface Go\nMSB - Microsoft Surface Book\nMBA - MacBook Air\nMSP - Microsoft Surface Pro\nMBP - MacBook Pro\nMSLG - Microsoft Surface Laptop Go\nMSL - Microsoft Surface Laptop")
 
 if question_1 == "y":
-    question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); Touchscreen (T) or Model (M)? Please type in one of the initials provided.")
+    question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); or Touchscreen (T)? Please type in one of the initials provided.")
 
 #grouped_data = comp_models.groupby('Model')['Age'].mean()
 #means = grouped_data['Age'].mean()
@@ -169,5 +171,37 @@ if question_2 == "SN":
     sea.set(style='whitegrid')
     plt.figure(figsize=(60, 8))
     # comp_models = sea.load_dataset("comp_models")
-    sea.swarmplot(data=comp_models, x='Model', y='MostCommonStorageAmountNeeded (GB)').set(title='The Weekly Usage Hours Of Each User Against Their Computer Model')
+    sea.swarmplot(data=comp_models, x='Model', y='StorageNeeded').set(title='The Storage Needed By Each User Compared To Their Computer Model')
     plt.show()
+
+if question_2 == "MN":
+    Model = memory_needed['Model']
+    MostCommonMemoryAmountNeeded = memory_needed['MostCommonMemoryAmountNeeded (GB)']
+    plt.figure(figsize=(60, 8))
+    plt.bar(Model, MostCommonMemoryAmountNeeded)
+    plt.xlabel('Model')
+    plt.ylabel('Most Common Memory Amount Needed (GB)')
+    plt.title('The Most Common Amount Of Memory Needed For Each Computer Model', fontsize=16, fontweight='bold')
+    plt.show()
+    sea.set(style='whitegrid')
+    plt.figure(figsize=(60, 8))
+    # comp_models = sea.load_dataset("comp_models")
+    sea.swarmplot(data=comp_models, x='Model', y='MemoryNeeded').set(title='The Memory Needed By Each User Compared To Their Computer Model')
+    plt.show()
+
+if question_2 == "U":
+    Model = mean_number_of_users['Model']
+    MeanNumberOfUsers = mean_number_of_users['MeanNumberOfUsers']
+    plt.figure(figsize=(60, 8))
+    plt.bar(Model, MeanNumberOfUsers)
+    plt.xlabel('Model')
+    plt.ylabel('Mean Number Of Users')
+    plt.title('The Mean Number Of Users Of Each Computer Model (Per Computer)', fontsize=16, fontweight='bold')
+    plt.show()
+    sea.set(style='whitegrid')
+    plt.figure(figsize=(60, 8))
+    # comp_models = sea.load_dataset("comp_models")
+    sea.swarmplot(data=comp_models, x='Model', y='Users').set(title='The Number Of Users Of Each Computer Of Each Model')
+    plt.show()
+
+if question_2 == "C":
