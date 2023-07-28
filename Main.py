@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 import seaborn as sea
 comp_models = pd.read_excel("DataSet.xlsx")
 age_means = pd.read_excel("DataSetAge.xlsx")
+budget_means = pd.read_excel("DataSetBudget.xlsx")
+most_common_main_use_means = pd.read_excel("DataSetMostCommonMainUse.xlsx")
+number_of_times_it_is_main_use_means = pd.read_excel("DataSetNumberOfTimesItIsMainUse.xlsx")
+usage_hours_per_week = pd.read_excel("DataSetUsageHoursPerWeek.xlsx")
 
 age = int(input("How old are you?"))
 budget = int(input("What is your budget ($)?"))
@@ -15,8 +19,6 @@ color = input("What color would you like it in out of: Grey (G); Silver (S); Blu
 touchscreen = input("Would you like it to have a touchscreen? Please type in y for yes or n for no.")
 
 right_model = ""
-
-answers = []
 
 #if age ==
 
@@ -100,20 +102,56 @@ if question_2 == "A":
     plt.title('The Average Age Of User Of Each Computer Model', fontsize=16, fontweight='bold')
     plt.show()
     sea.set(style='whitegrid')
+    plt.figure(figsize=(60, 8))
     #comp_models = sea.load_dataset("comp_models")
     sea.swarmplot(data=comp_models, x='Model', y='Age').set(title='The Age Of Each User Against Their Computer Model')
     plt.show()
     #correlation = comp_models['Age'].corr(comp_models['Model'])
+    #One colour for each age group.
 
 if question_2 == "B":
-    Model = comp_models['Model']
-    Budget = comp_models['Budget']
+    Model = budget_means['Model']
+    Budget = budget_means['Budget ($)']
     plt.figure(figsize=(60, 8))
     plt.bar(Model, Budget)
     plt.xlabel('Model')
-    plt.ylabel('Budget')
-    plt.title('How Budget Affects Computer Model Bought', fontsize=16, fontweight='bold')
-    correlation = comp_models['Budget'].corr(comp_models['Model'])
-
-
+    plt.ylabel('Budget ($)')
+    plt.title('The Average Budget Of The User Of Each Computer Model', fontsize=16, fontweight='bold')
+    plt.show()
+    sea.set(style='whitegrid')
+    plt.figure(figsize=(60, 8))
+    # comp_models = sea.load_dataset("comp_models")
+    sea.swarmplot(data=comp_models, x='Model', y='Budget').set(title='The Budget Of Each User Against Their Computer Model')
+    plt.show()
 #See corelation between aspect and model (if there is aspect).
+
+if question_2 == "MU":
+    Model = number_of_times_it_is_main_use_means['Model']
+    NumberOfTimesItIsMainUseMeans = number_of_times_it_is_main_use_means['NumberOfTimesItIsMainUseMeans']
+    plt.figure(figsize=(40, 8))
+    plt.bar(Model, NumberOfTimesItIsMainUseMeans)
+    plt.xlabel('Model')
+    plt.ylabel('NumberOfTimesItIsMainUseMeans')
+    plt.title('The Number Of Times Each MainUse Is The Main Use', fontsize=16, fontweight='bold')
+    plt.show()
+    sea.set(style='whitegrid')
+    plt.figure(figsize=(60, 8))
+    # comp_models = sea.load_dataset("comp_models")
+    sea.swarmplot(data=comp_models, x='Model', y='NumberOfTimesItIsMainUseMeans').set(title='The Number Of Times Each MainUse Is The Main Use')
+    plt.show()
+
+if question_2 == "UHPW":
+    Model = usage_hours_per_week['Model']
+    Budget = usage_hours_per_week['UsageHoursPerWeek']
+    plt.figure(figsize=(60, 8))
+    plt.bar(Model, Budget)
+    plt.xlabel('Model')
+    plt.ylabel('UsageHoursPerWeek')
+    plt.title('The Average Weekly Usage Hours Of Each Computer Model', fontsize=16, fontweight='bold')
+    plt.show()
+    sea.set(style='whitegrid')
+    plt.figure(figsize=(60, 8))
+    # comp_models = sea.load_dataset("comp_models")
+    sea.swarmplot(data=comp_models, x='Model', y='UsageHoursPerWeek').set(
+        title='The Weekly Usage Hours Of Each User Against Their Computer Model')
+    plt.show()
