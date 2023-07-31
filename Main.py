@@ -10,6 +10,8 @@ usage_hours_per_week = pd.read_excel("DataSetUsageHoursPerWeek.xlsx")
 storage_needed = pd.read_excel("DataSetMostCommonStorageAmountNeeded.xlsx")
 memory_needed = pd.read_excel("DataSetMostCommonMemoryAmountNeeded.xlsx")
 mean_number_of_users = pd.read_excel("DataSetMeanNumberOfUsers.xlsx")
+most_common_color = pd.read_excel("DataSetMostCommonColor.xlsx")
+number_of_times__main_color = pd.read_excel("DataSetNumberOfTimesMainColor.xlsx")
 
 age = int(input("How old are you?"))
 budget = int(input("What is your budget ($)?"))
@@ -135,7 +137,7 @@ if question_2 == "MU":
     plt.bar(MainUse, NumberOfTimesItIsMainUse)
     plt.xlabel('MainUse')
     plt.ylabel('NumberOfTimesItIsMainUse')
-    plt.title('The Number Of Times Each Main Use Is The Most Common Main Use Of A Computer Model', fontsize=16, fontweight='bold')
+    plt.title('The Number Of Computer Models That Each Use Is The Main Use Of', fontsize=16, fontweight='bold')
     plt.show()
     sea.set(style='whitegrid')
     plt.figure(figsize=(40, 8))
@@ -205,3 +207,17 @@ if question_2 == "U":
     plt.show()
 
 if question_2 == "C":
+    Color = number_of_times__main_color['Color']
+    NumberOfTimesMainColor = number_of_times__main_color['NumberOfTimesMainColor']
+    plt.figure(figsize=(60, 8))
+    plt.bar(Color, NumberOfTimesMainColor)
+    plt.xlabel('Color')
+    plt.ylabel('Number Of Times It Is Most Common Color')
+    plt.title('The Number Of Computer Models That Each Color Is The Most Common Color Of', fontsize=16, fontweight='bold')
+    plt.show()
+    sea.set(style='whitegrid')
+    plt.figure(figsize=(60, 8))
+    # comp_models = sea.load_dataset("comp_models")
+    sea.swarmplot(data=comp_models, x='Model', y='Color').set(
+        title='The Colors Of Each Model')
+    plt.show()
