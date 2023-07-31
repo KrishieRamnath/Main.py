@@ -80,7 +80,7 @@ if main_use == "OM":
 print(f"You should buy a {right_model}.")
 
 
-question_1 = input("Would you like to see a graph? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSG - Microsoft Surface Go\nMSB - Microsoft Surface Book\nMBA - MacBook Air\nMSP - Microsoft Surface Pro\nMBP - MacBook Pro\nMSLG - Microsoft Surface Laptop Go\nMSL - Microsoft Surface Laptop")
+question_1 = input("Would you like to see graphs? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSG - Microsoft Surface Go\nMSB - Microsoft Surface Book\nMBA - MacBook Air\nMSP - Microsoft Surface Pro\nMBP - MacBook Pro\nMSLG - Microsoft Surface Laptop Go\nMSL - Microsoft Surface Laptop")
 
 if question_1 == "y":
     question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); or Touchscreen (T)? Please type in one of the initials provided.")
@@ -210,3 +210,5 @@ if question_2 == "T":
     plt.figure(figsize=(60, 8))
     sea.swarmplot(data=comp_models, x='Model', y='Touchscreen').set(title='The Touchscreen Needs Of Each Person For Each Model')
     plt.show()
+
+#Write models would have used.
