@@ -85,17 +85,6 @@ question_1 = input("Would you like to see a graph? Please input y for yes or n f
 if question_1 == "y":
     question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); or Touchscreen (T)? Please type in one of the initials provided.")
 
-#grouped_data = comp_models.groupby('Model')['Age'].mean()
-#means = grouped_data['Age'].mean()
-#mean_data = grouped_data['Age'].mean()
-#summary_df = grouped_data['Age'].agg(['mean']).reset_index()
-#Work out the mean age for each computer model.
-#Use those numbers in the bar chart.
-#mean_for_category = means.loc['MSG']
-#print(summary_df)
-#print(means)
-
-
 if question_2 == "A":
     Model = age_means['Model']
     Age = age_means['Age']
@@ -107,11 +96,8 @@ if question_2 == "A":
     plt.show()
     sea.set(style='whitegrid')
     plt.figure(figsize=(60, 8))
-    #comp_models = sea.load_dataset("comp_models")
     sea.swarmplot(data=comp_models, x='Model', y='Age').set(title='The Age Of Each User Against Their Computer Model')
     plt.show()
-    #correlation = comp_models['Age'].corr(comp_models['Model'])
-    #One colour for each age group.
 
 if question_2 == "B":
     Model = budget_means['Model']
@@ -124,10 +110,8 @@ if question_2 == "B":
     plt.show()
     sea.set(style='whitegrid')
     plt.figure(figsize=(60, 8))
-    # comp_models = sea.load_dataset("comp_models")
     sea.swarmplot(data=comp_models, x='Model', y='Budget').set(title='The Budget Of Each User Against Their Computer Model')
     plt.show()
-#See corelation between aspect and model (if there is aspect).
 
 if question_2 == "MU":
     MainUse = number_of_times_it_is_main_use_means['MainUse']
@@ -140,7 +124,6 @@ if question_2 == "MU":
     plt.show()
     sea.set(style='whitegrid')
     plt.figure(figsize=(40, 8))
-    # comp_models = sea.load_dataset("comp_models")
     sea.swarmplot(data=comp_models, x='Model', y='MainUse').set(title='The Main Uses Of Each Computer Model')
     plt.show()
 
@@ -155,9 +138,7 @@ if question_2 == "UHPW":
     plt.show()
     sea.set(style='whitegrid')
     plt.figure(figsize=(60, 8))
-    # comp_models = sea.load_dataset("comp_models")
-    sea.swarmplot(data=comp_models, x='Model', y='UsageHoursPerWeek').set(
-        title='The Weekly Usage Hours Of Each User Against Their Computer Model')
+    sea.swarmplot(data=comp_models, x='Model', y='UsageHoursPerWeek').set(title='The Weekly Usage Hours Of Each User Against Their Computer Model')
     plt.show()
 
 if question_2 == "SN":
@@ -171,7 +152,6 @@ if question_2 == "SN":
     plt.show()
     sea.set(style='whitegrid')
     plt.figure(figsize=(60, 8))
-    # comp_models = sea.load_dataset("comp_models")
     sea.swarmplot(data=comp_models, x='Model', y='StorageNeeded').set(title='The Storage Needed By Each User Compared To Their Computer Model')
     plt.show()
 
@@ -186,7 +166,6 @@ if question_2 == "MN":
     plt.show()
     sea.set(style='whitegrid')
     plt.figure(figsize=(60, 8))
-    # comp_models = sea.load_dataset("comp_models")
     sea.swarmplot(data=comp_models, x='Model', y='MemoryNeeded').set(title='The Memory Needed By Each User Compared To Their Computer Model')
     plt.show()
 
@@ -201,7 +180,6 @@ if question_2 == "U":
     plt.show()
     sea.set(style='whitegrid')
     plt.figure(figsize=(60, 8))
-    # comp_models = sea.load_dataset("comp_models")
     sea.swarmplot(data=comp_models, x='Model', y='Users').set(title='The Number Of Users Of Each Computer Of Each Model')
     plt.show()
 
@@ -216,7 +194,6 @@ if question_2 == "C":
     plt.show()
     sea.set(style='whitegrid')
     plt.figure(figsize=(60, 8))
-    # comp_models = sea.load_dataset("comp_models")
     sea.swarmplot(data=comp_models, x='Model', y='Color').set(title='The Colors Of Each Model')
     plt.show()
 
@@ -231,6 +208,5 @@ if question_2 == "T":
     plt.show()
     sea.set(style='whitegrid')
     plt.figure(figsize=(60, 8))
-    # comp_models = sea.load_dataset("comp_models")
     sea.swarmplot(data=comp_models, x='Model', y='Touchscreen').set(title='The Touchscreen Needs Of Each Person For Each Model')
     plt.show()
