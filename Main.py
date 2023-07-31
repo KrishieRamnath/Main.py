@@ -12,6 +12,7 @@ memory_needed = pd.read_excel("DataSetMostCommonMemoryAmountNeeded.xlsx")
 mean_number_of_users = pd.read_excel("DataSetMeanNumberOfUsers.xlsx")
 most_common_color = pd.read_excel("DataSetMostCommonColor.xlsx")
 number_of_times__main_color = pd.read_excel("DataSetNumberOfTimesMainColor.xlsx")
+percentage_of_touchscreens = pd.read_excel("DataSetPercentageOfPeopleWhoWantATouchscreen.xlsx")
 
 age = int(input("How old are you?"))
 budget = int(input("What is your budget ($)?"))
@@ -24,8 +25,6 @@ color = input("What color would you like it in out of: Grey (G); Silver (S); Blu
 touchscreen = input("Would you like it to have a touchscreen? Please type in y for yes or n for no.")
 
 right_model = ""
-
-#if age ==
 
 if main_use == "MP":
     if touchscreen == "n":
@@ -218,6 +217,20 @@ if question_2 == "C":
     sea.set(style='whitegrid')
     plt.figure(figsize=(60, 8))
     # comp_models = sea.load_dataset("comp_models")
-    sea.swarmplot(data=comp_models, x='Model', y='Color').set(
-        title='The Colors Of Each Model')
+    sea.swarmplot(data=comp_models, x='Model', y='Color').set(title='The Colors Of Each Model')
+    plt.show()
+
+if question_2 == "T":
+    Model = percentage_of_touchscreens['Model']
+    Touchscreeners = percentage_of_touchscreens['Percentage Of People Who Want A Touchscreen']
+    plt.figure(figsize=(60, 8))
+    plt.bar(Model, Touchscreeners)
+    plt.xlabel('Model')
+    plt.ylabel('Percentage Of People Who Want A Touchscreen')
+    plt.title('The Percentage Of People Who Want A Touchscreen', fontsize=16, fontweight='bold')
+    plt.show()
+    sea.set(style='whitegrid')
+    plt.figure(figsize=(60, 8))
+    # comp_models = sea.load_dataset("comp_models")
+    sea.swarmplot(data=comp_models, x='Model', y='Touchscreen').set(title='The Touchscreen Needs Of Each Person For Each Model')
     plt.show()
