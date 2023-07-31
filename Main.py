@@ -79,136 +79,139 @@ if main_use == "OM":
 
 print(f"You should buy a {right_model}.")
 
+#Ideas for improvement:
+#list of inputs = []
+#numreator = 0
+#if
 
-question_1 = input("Would you like to see graphs? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSG - Microsoft Surface Go\nMSB - Microsoft Surface Book\nMBA - MacBook Air\nMSP - Microsoft Surface Pro\nMBP - MacBook Pro\nMSLG - Microsoft Surface Laptop Go\nMSL - Microsoft Surface Laptop")
+while True:
+    question_1 = input("Would you like to see graphs? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSG - Microsoft Surface Go\nMSB - Microsoft Surface Book\nMBA - MacBook Air\nMSP - Microsoft Surface Pro\nMBP - MacBook Pro\nMSLG - Microsoft Surface Laptop Go\nMSL - Microsoft Surface Laptop")
 
-if question_1 == "y":
-    question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); or Touchscreen (T)? Please type in one of the initials provided.")
+    if question_1 == "y":
+        question_2 = input("Which of these would you like to see in relation to computer model bought: Age (A); Budget (B); Main Use (MU); Usage Hours Per Week (UHPW); Storage Needed (SN); Memory Needed  (MN); Users (U); Color (C); or Touchscreen (T)? Please type in one of the initials provided.")
 
-if question_2 == "A":
-    Model = age_means['Model']
-    Age = age_means['Age']
-    plt.figure(figsize=(60, 8))
-    plt.bar(Model, Age)
-    plt.xlabel('Model')
-    plt.ylabel('Age')
-    plt.title('The Average Age Of User Of Each Computer Model', fontsize=16, fontweight='bold')
-    plt.show()
-    sea.set(style='whitegrid')
-    plt.figure(figsize=(60, 8))
-    sea.swarmplot(data=comp_models, x='Model', y='Age').set(title='The Age Of Each User Against Their Computer Model')
-    plt.show()
+    if question_2 == "A":
+        Model = age_means['Model']
+        Age = age_means['Age']
+        plt.figure(figsize=(60, 8))
+        plt.bar(Model, Age)
+        plt.xlabel('Model')
+        plt.ylabel('Age')
+        plt.title('The Average Age Of User Of Each Computer Model', fontsize=16, fontweight='bold')
+        plt.show()
+        sea.set(style='whitegrid')
+        plt.figure(figsize=(60, 8))
+        sea.swarmplot(data=comp_models, x='Model', y='Age').set(title='The Age Of Each User Against Their Computer Model')
+        plt.show()
 
-if question_2 == "B":
-    Model = budget_means['Model']
-    Budget = budget_means['Budget ($)']
-    plt.figure(figsize=(60, 8))
-    plt.bar(Model, Budget)
-    plt.xlabel('Model')
-    plt.ylabel('Budget ($)')
-    plt.title('The Average Budget Of The User Of Each Computer Model', fontsize=16, fontweight='bold')
-    plt.show()
-    sea.set(style='whitegrid')
-    plt.figure(figsize=(60, 8))
-    sea.swarmplot(data=comp_models, x='Model', y='Budget').set(title='The Budget Of Each User Against Their Computer Model')
-    plt.show()
+    if question_2 == "B":
+        Model = budget_means['Model']
+        Budget = budget_means['Budget ($)']
+        plt.figure(figsize=(60, 8))
+        plt.bar(Model, Budget)
+        plt.xlabel('Model')
+        plt.ylabel('Budget ($)')
+        plt.title('The Average Budget Of The User Of Each Computer Model', fontsize=16, fontweight='bold')
+        plt.show()
+        sea.set(style='whitegrid')
+        plt.figure(figsize=(60, 8))
+        sea.swarmplot(data=comp_models, x='Model', y='Budget').set(title='The Budget Of Each User Against Their Computer Model')
+        plt.show()
 
-if question_2 == "MU":
-    MainUse = number_of_times_it_is_main_use_means['MainUse']
-    NumberOfTimesItIsMainUse = number_of_times_it_is_main_use_means['NumberOfTimesItIsMainUse']
-    plt.figure(figsize=(40, 8))
-    plt.bar(MainUse, NumberOfTimesItIsMainUse)
-    plt.xlabel('MainUse')
-    plt.ylabel('NumberOfTimesItIsMainUse')
-    plt.title('The Number Of Computer Models That Each Use Is The Main Use Of', fontsize=16, fontweight='bold')
-    plt.show()
-    sea.set(style='whitegrid')
-    plt.figure(figsize=(40, 8))
-    sea.swarmplot(data=comp_models, x='Model', y='MainUse').set(title='The Main Uses Of Each Computer Model')
-    plt.show()
+    if question_2 == "MU":
+        MainUse = number_of_times_it_is_main_use_means['MainUse']
+        NumberOfTimesItIsMainUse = number_of_times_it_is_main_use_means['NumberOfTimesItIsMainUse']
+        plt.figure(figsize=(40, 8))
+        plt.bar(MainUse, NumberOfTimesItIsMainUse)
+        plt.xlabel('MainUse')
+        plt.ylabel('NumberOfTimesItIsMainUse')
+        plt.title('The Number Of Computer Models That Each Use Is The Main Use Of', fontsize=16, fontweight='bold')
+        plt.show()
+        sea.set(style='whitegrid')
+        plt.figure(figsize=(40, 8))
+        sea.swarmplot(data=comp_models, x='Model', y='MainUse').set(title='The Main Uses Of Each Computer Model')
+        plt.show()
 
-if question_2 == "UHPW":
-    Model = usage_hours_per_week['Model']
-    UsageHoursPerWeek = usage_hours_per_week['UsageHoursPerWeek']
-    plt.figure(figsize=(60, 8))
-    plt.bar(Model, UsageHoursPerWeek)
-    plt.xlabel('Model')
-    plt.ylabel('UsageHoursPerWeek')
-    plt.title('The Average Weekly Usage Hours Of Each Computer Model', fontsize=16, fontweight='bold')
-    plt.show()
-    sea.set(style='whitegrid')
-    plt.figure(figsize=(60, 8))
-    sea.swarmplot(data=comp_models, x='Model', y='UsageHoursPerWeek').set(title='The Weekly Usage Hours Of Each User Against Their Computer Model')
-    plt.show()
+    if question_2 == "UHPW":
+        Model = usage_hours_per_week['Model']
+        UsageHoursPerWeek = usage_hours_per_week['UsageHoursPerWeek']
+        plt.figure(figsize=(60, 8))
+        plt.bar(Model, UsageHoursPerWeek)
+        plt.xlabel('Model')
+        plt.ylabel('UsageHoursPerWeek')
+        plt.title('The Average Weekly Usage Hours Of Each Computer Model', fontsize=16, fontweight='bold')
+        plt.show()
+        sea.set(style='whitegrid')
+        plt.figure(figsize=(60, 8))
+        sea.swarmplot(data=comp_models, x='Model', y='UsageHoursPerWeek').set(title='The Weekly Usage Hours Of Each User Against Their Computer Model')
+        plt.show()
 
-if question_2 == "SN":
-    Model = storage_needed['Model']
-    MostCommonStorageAmountNeeded = storage_needed['MostCommonStorageAmountNeeded (GB)']
-    plt.figure(figsize=(60, 8))
-    plt.bar(Model, MostCommonStorageAmountNeeded)
-    plt.xlabel('Model')
-    plt.ylabel('Most Common Storage Amount Needed (GB)')
-    plt.title('The Most Common Amount Of Storage Space Needed For Each Computer Model', fontsize=16, fontweight='bold')
-    plt.show()
-    sea.set(style='whitegrid')
-    plt.figure(figsize=(60, 8))
-    sea.swarmplot(data=comp_models, x='Model', y='StorageNeeded').set(title='The Storage Needed By Each User Compared To Their Computer Model')
-    plt.show()
+    if question_2 == "SN":
+        Model = storage_needed['Model']
+        MostCommonStorageAmountNeeded = storage_needed['MostCommonStorageAmountNeeded (GB)']
+        plt.figure(figsize=(60, 8))
+        plt.bar(Model, MostCommonStorageAmountNeeded)
+        plt.xlabel('Model')
+        plt.ylabel('Most Common Storage Amount Needed (GB)')
+        plt.title('The Most Common Amount Of Storage Space Needed For Each Computer Model', fontsize=16, fontweight='bold')
+        plt.show()
+        sea.set(style='whitegrid')
+        plt.figure(figsize=(60, 8))
+        sea.swarmplot(data=comp_models, x='Model', y='StorageNeeded').set(title='The Storage Needed By Each User Compared To Their Computer Model')
+        plt.show()
 
-if question_2 == "MN":
-    Model = memory_needed['Model']
-    MostCommonMemoryAmountNeeded = memory_needed['MostCommonMemoryAmountNeeded (GB)']
-    plt.figure(figsize=(60, 8))
-    plt.bar(Model, MostCommonMemoryAmountNeeded)
-    plt.xlabel('Model')
-    plt.ylabel('Most Common Memory Amount Needed (GB)')
-    plt.title('The Most Common Amount Of Memory Needed For Each Computer Model', fontsize=16, fontweight='bold')
-    plt.show()
-    sea.set(style='whitegrid')
-    plt.figure(figsize=(60, 8))
-    sea.swarmplot(data=comp_models, x='Model', y='MemoryNeeded').set(title='The Memory Needed By Each User Compared To Their Computer Model')
-    plt.show()
+    if question_2 == "MN":
+        Model = memory_needed['Model']
+        MostCommonMemoryAmountNeeded = memory_needed['MostCommonMemoryAmountNeeded (GB)']
+        plt.figure(figsize=(60, 8))
+        plt.bar(Model, MostCommonMemoryAmountNeeded)
+        plt.xlabel('Model')
+        plt.ylabel('Most Common Memory Amount Needed (GB)')
+        plt.title('The Most Common Amount Of Memory Needed For Each Computer Model', fontsize=16, fontweight='bold')
+        plt.show()
+        sea.set(style='whitegrid')
+        plt.figure(figsize=(60, 8))
+        sea.swarmplot(data=comp_models, x='Model', y='MemoryNeeded').set(title='The Memory Needed By Each User Compared To Their Computer Model')
+        plt.show()
 
-if question_2 == "U":
-    Model = mean_number_of_users['Model']
-    MeanNumberOfUsers = mean_number_of_users['MeanNumberOfUsers']
-    plt.figure(figsize=(60, 8))
-    plt.bar(Model, MeanNumberOfUsers)
-    plt.xlabel('Model')
-    plt.ylabel('Mean Number Of Users')
-    plt.title('The Mean Number Of Users Of Each Computer Model (Per Computer)', fontsize=16, fontweight='bold')
-    plt.show()
-    sea.set(style='whitegrid')
-    plt.figure(figsize=(60, 8))
-    sea.swarmplot(data=comp_models, x='Model', y='Users').set(title='The Number Of Users Of Each Computer Of Each Model')
-    plt.show()
+    if question_2 == "U":
+        Model = mean_number_of_users['Model']
+        MeanNumberOfUsers = mean_number_of_users['MeanNumberOfUsers']
+        plt.figure(figsize=(60, 8))
+        plt.bar(Model, MeanNumberOfUsers)
+        plt.xlabel('Model')
+        plt.ylabel('Mean Number Of Users')
+        plt.title('The Mean Number Of Users Of Each Computer Model (Per Computer)', fontsize=16, fontweight='bold')
+        plt.show()
+        sea.set(style='whitegrid')
+        plt.figure(figsize=(60, 8))
+        sea.swarmplot(data=comp_models, x='Model', y='Users').set(title='The Number Of Users Of Each Computer Of Each Model')
+        plt.show()
 
-if question_2 == "C":
-    Color = number_of_times__main_color['Color']
-    NumberOfTimesMainColor = number_of_times__main_color['NumberOfTimesMainColor']
-    plt.figure(figsize=(60, 8))
-    plt.bar(Color, NumberOfTimesMainColor)
-    plt.xlabel('Color')
-    plt.ylabel('Number Of Times It Is Most Common Color')
-    plt.title('The Number Of Computer Models That Each Color Is The Most Common Color Of', fontsize=16, fontweight='bold')
-    plt.show()
-    sea.set(style='whitegrid')
-    plt.figure(figsize=(60, 8))
-    sea.swarmplot(data=comp_models, x='Model', y='Color').set(title='The Colors Of Each Model')
-    plt.show()
+    if question_2 == "C":
+        Color = number_of_times__main_color['Color']
+        NumberOfTimesMainColor = number_of_times__main_color['NumberOfTimesMainColor']
+        plt.figure(figsize=(60, 8))
+        plt.bar(Color, NumberOfTimesMainColor)
+        plt.xlabel('Color')
+        plt.ylabel('Number Of Times It Is Most Common Color')
+        plt.title('The Number Of Computer Models That Each Color Is The Most Common Color Of', fontsize=16, fontweight='bold')
+        plt.show()
+        sea.set(style='whitegrid')
+        plt.figure(figsize=(60, 8))
+        sea.swarmplot(data=comp_models, x='Model', y='Color').set(title='The Colors Of Each Model')
+        plt.show()
 
-if question_2 == "T":
-    Model = percentage_of_touchscreens['Model']
-    Touchscreeners = percentage_of_touchscreens['Percentage Of People Who Want A Touchscreen']
-    plt.figure(figsize=(60, 8))
-    plt.bar(Model, Touchscreeners)
-    plt.xlabel('Model')
-    plt.ylabel('Percentage Of People Who Want A Touchscreen')
-    plt.title('The Percentage Of People Who Want A Touchscreen', fontsize=16, fontweight='bold')
-    plt.show()
-    sea.set(style='whitegrid')
-    plt.figure(figsize=(60, 8))
-    sea.swarmplot(data=comp_models, x='Model', y='Touchscreen').set(title='The Touchscreen Needs Of Each Person For Each Model')
-    plt.show()
-
-#Write models would have used.
+    if question_2 == "T":
+        Model = percentage_of_touchscreens['Model']
+        Touchscreeners = percentage_of_touchscreens['Percentage Of People Who Want A Touchscreen']
+        plt.figure(figsize=(60, 8))
+        plt.bar(Model, Touchscreeners)
+        plt.xlabel('Model')
+        plt.ylabel('Percentage Of People Who Want A Touchscreen')
+        plt.title('The Percentage Of People Who Want A Touchscreen', fontsize=16, fontweight='bold')
+        plt.show()
+        sea.set(style='whitegrid')
+        plt.figure(figsize=(60, 8))
+        sea.swarmplot(data=comp_models, x='Model', y='Touchscreen').set(title='The Touchscreen Needs Of Each Person For Each Model')
+        plt.show()
