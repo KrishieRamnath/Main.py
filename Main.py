@@ -51,13 +51,13 @@ if main_use == "S":
         right_model = "Microsoft Surface Go"
 
 if main_use == "U":
-    if storage_needed >= 512:
+    if storage__needed >= 512:
         right_model = "Microsoft Surface Laptop"
     else:
         right_model = "Microsoft Surface Pro"
 
 if main_use == "WP":
-    if memory_needed >=16:
+    if memory__needed >= 16:
         if touchscreen == "n":
             right_model = "MacBook Air"
         elif touchscreen == "y":
@@ -80,7 +80,7 @@ if main_use == "OM":
 print(f"You should buy a {right_model}.")
 
 #Ideas for improvement:
-#list of inputs = []
+#list of inputs = numpy.arr[]
 #numreator = 0
 #if
 
