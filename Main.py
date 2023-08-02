@@ -81,8 +81,11 @@ print(f"You should buy a {right_model}.")
 
 #Ideas for improvement:
 #list of inputs = numpy.arr[]
-#numreator = 0
-#if
+#numreator = 0 (Numerator is the number of answers which match a set on the data set.)
+#if numerator == 6:
+#   Model = ['Model']
+#elif numerator == 5:
+#   Model = ['Model']
 
 while True:
     question_1 = input("Would you like to see graphs? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSG - Microsoft Surface Go\nMSB - Microsoft Surface Book\nMBA - MacBook Air\nMSP - Microsoft Surface Pro\nMBP - MacBook Pro\nMSLG - Microsoft Surface Laptop Go\nMSL - Microsoft Surface Laptop")
