@@ -83,11 +83,11 @@ print(f"You should buy a {right_model}.")
 #list of inputs = numpy.arr[]
 #numreator = 0 (Numerator is the number of answers which match a set on the data set.)
 #if numerator == 6:
-#   Model = ['Model']
+#   Model = ['Model (that it is similar to']
 #elif numerator == 5:
-#   Model = ['Model']
+#   Model = ['Model (that it is similar to)']
 #elif numerator == 4:
-# Model = ['Model']
+#   Model = ['Model (that it is similar to)']
 #...
 
 while True:
