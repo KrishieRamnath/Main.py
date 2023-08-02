@@ -86,6 +86,9 @@ print(f"You should buy a {right_model}.")
 #   Model = ['Model']
 #elif numerator == 5:
 #   Model = ['Model']
+#elif numerator == 4:
+# Model = ['Model']
+#...
 
 while True:
     question_1 = input("Would you like to see graphs? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSG - Microsoft Surface Go\nMSB - Microsoft Surface Book\nMBA - MacBook Air\nMSP - Microsoft Surface Pro\nMBP - MacBook Pro\nMSLG - Microsoft Surface Laptop Go\nMSL - Microsoft Surface Laptop")
