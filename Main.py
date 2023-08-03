@@ -80,6 +80,7 @@ if main_use == "OM":
 print(f"You should buy a {right_model}.")
 
 #Ideas for improvement:
+
 #list of inputs = numpy.arr[]
 #numreator = 0 (Numerator is the number of answers which match a set on the data set.)
 #if numerator == 6:
@@ -89,6 +90,9 @@ print(f"You should buy a {right_model}.")
 #elif numerator == 4:
 #   Model = ['Model (that it is similar to)']
 #...
+
+#models = [SGB, LI, MSG, MSB, MBA, MSP, MBP, MSLG, MSL]
+#usage_hours_per_week = UsageHoursPerWeek(each model)
 
 while True:
     question_1 = input("Would you like to see graphs? Please input y for yes or n for no.\nSGB - Samsung Galaxy Book\nLI - Lenovo Ideapad\nMSG - Microsoft Surface Go\nMSB - Microsoft Surface Book\nMBA - MacBook Air\nMSP - Microsoft Surface Pro\nMBP - MacBook Pro\nMSLG - Microsoft Surface Laptop Go\nMSL - Microsoft Surface Laptop")
